@@ -1,5 +1,7 @@
 package KotlinLearn
 
+import jdk.internal.net.http.common.Pair.pair
+
 fun main(){
 //    Array_and_ListDiff()
 //    List_Operation()
@@ -7,7 +9,9 @@ fun main(){
 //    filtering()
 //    Set_Learning()
 //    Set_Operations()
-    UserId_with_set()
+//    UserId_with_set()
+//    map_create()
+    map_accessing()
 }
 
 fun listOperations(){
@@ -158,4 +162,61 @@ fun UserId_with_set() {
     if (checkId in userIds) {
         println("User $checkId exists")
     }
+}
+
+//maps-> key-value pair
+
+fun map_create(){
+    val ages = mapOf(
+        "Arjun" to 20,
+        "Brother" to 21,
+        "Sadu" to 19
+    )
+    println(ages)
+
+//    using pair
+    val scores = mapOf(
+        Pair("Math", 95),
+        Pair("Science",88),
+        Pair("English",92)
+    )
+    println(scores)
+
+    // Mutable map
+    val mutableAges = mutableMapOf(
+        "Alice" to 25,
+        "Bob" to 30
+    )
+    // Empty map
+    val emptyMap = emptyMap<String, Int>()
+    val mutableEmpty = mutableMapOf<String, Int>()
+}
+
+fun map_accessing() {
+    val ages = mapOf(
+        "Alice" to 25,
+        "Bob" to 30,
+        "Charlie" to 35
+    )
+
+    // Get by key
+    println(ages["Alice"])        // 25
+    println(ages.get("Bob"))      // 30
+
+    // Safe access
+    println(ages["David"])        // null
+    println(ages.getOrDefault("David", 0))  // 0
+    println(ages.getOrElse("David") { "Not found" })  // Not found
+
+    // Check if key exists
+    println("Alice" in ages)      // true
+    println(ages.containsKey("Alice"))  // true
+
+    // Check if value exists
+    println(ages.containsValue(25))  // true
+
+    // Get all keys and values
+    println("Keys: ${ages.keys}")      // [Alice, Bob, Charlie]
+    println("Values: ${ages.values}")  // [25, 30, 35]
+    println("Entries: ${ages.entries}")  // [Alice=25, Bob=30, Charlie=35]
 }
