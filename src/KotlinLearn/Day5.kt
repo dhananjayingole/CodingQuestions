@@ -11,7 +11,8 @@ fun main(){
 //    Set_Operations()
 //    UserId_with_set()
 //    map_create()
-    map_accessing()
+//    map_accessing()
+    to_do_project()
 }
 
 fun listOperations(){
@@ -193,6 +194,7 @@ fun map_create(){
 }
 
 fun map_accessing() {
+
     val ages = mapOf(
         "Alice" to 25,
         "Bob" to 30,
@@ -219,4 +221,37 @@ fun map_accessing() {
     println("Keys: ${ages.keys}")      // [Alice, Bob, Charlie]
     println("Values: ${ages.values}")  // [25, 30, 35]
     println("Entries: ${ages.entries}")  // [Alice=25, Bob=30, Charlie=35]
+}
+
+fun map_modifying(){
+    val ages = mutableMapOf(
+        "Alice" to 25,
+        "Bob" to 30
+    )
+    println("Start: $ages")
+
+    ages["Charlie"] = 35
+    println("After adding Charlie: $ages")
+
+    ages.put("David", 40)
+    println("After adding David: $ages")
+
+    ages.remove("Charlie")
+    println("After Removing Charlie: $ages")
+}
+
+fun to_do_project(){
+    val tasks = mutableMapOf<String, MutableList<String>>()
+    println("Categorized to do list")
+
+    tasks["Work"] = mutableListOf("Finish report", "Email client","Team meeting")
+    tasks["Home"] = mutableListOf("Buy groceries","Clean kitchen","Pay bills")
+    tasks["Personal"] = mutableListOf("go to gym","Read book","Call mom")
+
+    for ((category, taskList) in tasks){
+        println("\n $category")
+        for((index, task) in taskList.withIndex()){
+            println("${index + 1}.$task")
+        }
+    }
 }
