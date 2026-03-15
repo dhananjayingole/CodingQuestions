@@ -12,7 +12,8 @@ fun main(){
 //    UserId_with_set()
 //    map_create()
 //    map_accessing()
-    to_do_project()
+//    to_do_project()
+    Stock_Management()
 }
 
 fun listOperations(){
@@ -254,4 +255,45 @@ fun to_do_project(){
             println("${index + 1}.$task")
         }
     }
+}
+
+fun Stock_Management(){
+    val inventory = mutableMapOf<String, Int>(
+        "Apple" to 50,
+        "Banana" to 30,
+        "Orange" to 40,
+        "Milk" to 20,
+        "Bread" to 15
+    )
+
+    println("--- Store Inventory---")
+    println("Current Stock:")
+    for((item, quantity) in inventory){
+        println(" $item: $quantity units")
+    }
+
+//    simulate sales
+    val sales = listOf("Apple" to 5, "Banana" to 10, "Milk" to 3, "Apple" to 8)
+    println("\n -- Processing Sales---")
+    for((item, quantity)  in sales){
+        val currentStock = inventory[item]?:0
+        if(currentStock >= quantity){
+            inventory[item] = currentStock - quantity
+            println("Sold $quantity $item. Remaining: ${inventory[item]}")
+        }
+        else{
+            println("Not enough $item! Need $quantity but have $currentStock")
+        }
+    }
+    // Check low stock items
+    println("\n--- Low Stock Alert (< 20 units) ---")
+    for ((item, quantity) in inventory) {
+        if (quantity < 20) {
+            println("⚠️ $item: $quantity units - RESTOCK NEEDED")
+        }
+    }
+
+    // Total items in inventory
+    val totalItems = inventory.values.sum()
+    println("\nTotal items in inventory: $totalItems")
 }
