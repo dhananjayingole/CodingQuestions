@@ -1,7 +1,10 @@
 package KotlinLearn
 
 fun main(){
-    Ranges_usage()
+//    Ranges_usage()
+//    if_else()
+//    Operator_Working()
+    when_statement()
 }
 
 fun if_else(){
