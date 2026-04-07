@@ -2,7 +2,7 @@ package KotlinLearn.week2
 
 //oops in kt
 
-class Person {
+open class Person {
     var name: String = ""
     var age: Int = 0
 }
@@ -31,7 +31,7 @@ class BankAccount(private var balance: Int){
 }
 
 //homework
-class Employee(
+open class Employee(
     var name: String,
     private var salary: Int,
     var position:String,
