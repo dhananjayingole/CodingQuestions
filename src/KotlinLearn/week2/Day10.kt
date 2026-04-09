@@ -1,4 +1,4 @@
-package KotlinLearn
+package KotlinLearn.week2
 
 
 //null pointer
@@ -114,6 +114,4 @@ fun main(){
     println("Valid email: ${profileManager.getValidEmail("john@work.com")}")
     println("Invalid email: ${profileManager.getValidEmail("invalid")}")
     println("Null email: ${profileManager.getValidEmail(null)}")
-
-
 }
